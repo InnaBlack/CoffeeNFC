@@ -10,11 +10,15 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    private var interactor: AppInteractorProtocol?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+        
+        // Setup coordinator with interactor
+        self.interactor = AppInteractor()
+        self.interactor?.start()
+        
+                return true
     }
 
     // MARK: UISceneSession Lifecycle

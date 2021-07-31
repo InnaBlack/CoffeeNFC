@@ -8,22 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		9DC26BAA26B591F400BF9038 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BA926B591F400BF9038 /* AppDelegate.swift */; };
-		9DC26BAC26B591F400BF9038 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BAB26B591F400BF9038 /* SceneDelegate.swift */; };
-		9DC26BAE26B591F400BF9038 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BAD26B591F400BF9038 /* ViewController.swift */; };
-		9DC26BB126B591F400BF9038 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC26BAF26B591F400BF9038 /* Main.storyboard */; };
 		9DC26BB326B591F800BF9038 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DC26BB226B591F800BF9038 /* Assets.xcassets */; };
 		9DC26BB626B591F800BF9038 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC26BB426B591F800BF9038 /* LaunchScreen.storyboard */; };
+		9DC26BC026B5966E00BF9038 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BBF26B5966E00BF9038 /* ServiceLocator.swift */; };
+		9DC26BC226B596C400BF9038 /* AppCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BC126B596C400BF9038 /* AppCordinator.swift */; };
+		9DC26BC426B5981F00BF9038 /* AppInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BC326B5981F00BF9038 /* AppInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9DC26BA626B591F400BF9038 /* CoffeeNFC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeNFC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC26BA926B591F400BF9038 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9DC26BAB26B591F400BF9038 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9DC26BAD26B591F400BF9038 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9DC26BB026B591F400BF9038 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DC26BB226B591F800BF9038 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DC26BB526B591F800BF9038 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DC26BB726B591F800BF9038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DC26BBF26B5966E00BF9038 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
+		9DC26BC126B596C400BF9038 /* AppCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCordinator.swift; sourceTree = "<group>"; };
+		9DC26BC326B5981F00BF9038 /* AppInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +56,31 @@
 		9DC26BA826B591F400BF9038 /* CoffeeNFC */ = {
 			isa = PBXGroup;
 			children = (
+				9DC26BBE26B5962700BF9038 /* Services */,
+				9DC26BBD26B5961C00BF9038 /* Managers */,
 				9DC26BA926B591F400BF9038 /* AppDelegate.swift */,
-				9DC26BAB26B591F400BF9038 /* SceneDelegate.swift */,
-				9DC26BAD26B591F400BF9038 /* ViewController.swift */,
-				9DC26BAF26B591F400BF9038 /* Main.storyboard */,
+				9DC26BC326B5981F00BF9038 /* AppInteractor.swift */,
+				9DC26BC126B596C400BF9038 /* AppCordinator.swift */,
 				9DC26BB226B591F800BF9038 /* Assets.xcassets */,
 				9DC26BB426B591F800BF9038 /* LaunchScreen.storyboard */,
 				9DC26BB726B591F800BF9038 /* Info.plist */,
 			);
 			path = CoffeeNFC;
+			sourceTree = "<group>";
+		};
+		9DC26BBD26B5961C00BF9038 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		9DC26BBE26B5962700BF9038 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9DC26BBF26B5966E00BF9038 /* ServiceLocator.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +142,6 @@
 			files = (
 				9DC26BB626B591F800BF9038 /* LaunchScreen.storyboard in Resources */,
 				9DC26BB326B591F800BF9038 /* Assets.xcassets in Resources */,
-				9DC26BB126B591F400BF9038 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +152,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DC26BAE26B591F400BF9038 /* ViewController.swift in Sources */,
+				9DC26BC226B596C400BF9038 /* AppCordinator.swift in Sources */,
+				9DC26BC026B5966E00BF9038 /* ServiceLocator.swift in Sources */,
+				9DC26BC426B5981F00BF9038 /* AppInteractor.swift in Sources */,
 				9DC26BAA26B591F400BF9038 /* AppDelegate.swift in Sources */,
-				9DC26BAC26B591F400BF9038 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9DC26BAF26B591F400BF9038 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9DC26BB026B591F400BF9038 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9DC26BB426B591F800BF9038 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
