@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,17 @@
 		9DC26BC026B5966E00BF9038 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BBF26B5966E00BF9038 /* ServiceLocator.swift */; };
 		9DC26BC226B596C400BF9038 /* AppCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BC126B596C400BF9038 /* AppCordinator.swift */; };
 		9DC26BC426B5981F00BF9038 /* AppInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BC326B5981F00BF9038 /* AppInteractor.swift */; };
+		9DC26BC726B59F5400BF9038 /* SesionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BC626B59F5400BF9038 /* SesionManager.swift */; };
+		9DC26BC926B59F6700BF9038 /* CoffeeEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BC826B59F6700BF9038 /* CoffeeEndPoints.swift */; };
+		9DC26BCB26B59FA900BF9038 /* CoffeeNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BCA26B59FA900BF9038 /* CoffeeNetworkService.swift */; };
+		9DC26BCE26B5DDB700BF9038 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9DC26BCD26B5DDB700BF9038 /* Alamofire */; };
+		9DC26BD126B5E6C700BF9038 /* CError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BD026B5E6C700BF9038 /* CError.swift */; };
+		9DC26BD426B5E8E600BF9038 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9DC26BD326B5E8E600BF9038 /* RxSwift */; };
+		9DC26BD626B5E8E600BF9038 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 9DC26BD526B5E8E600BF9038 /* RxTest */; };
+		9DC26BD826B5E8E600BF9038 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 9DC26BD726B5E8E600BF9038 /* RxRelay */; };
+		9DC26BDA26B5E8E600BF9038 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 9DC26BD926B5E8E600BF9038 /* RxCocoa */; };
+		9DC26BDC26B5E8E600BF9038 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 9DC26BDB26B5E8E600BF9038 /* RxBlocking */; };
+		9DC26BDF26B5EC4100BF9038 /* CofeeMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BDE26B5EC4100BF9038 /* CofeeMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +35,11 @@
 		9DC26BBF26B5966E00BF9038 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		9DC26BC126B596C400BF9038 /* AppCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCordinator.swift; sourceTree = "<group>"; };
 		9DC26BC326B5981F00BF9038 /* AppInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInteractor.swift; sourceTree = "<group>"; };
+		9DC26BC626B59F5400BF9038 /* SesionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesionManager.swift; sourceTree = "<group>"; };
+		9DC26BC826B59F6700BF9038 /* CoffeeEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeEndPoints.swift; sourceTree = "<group>"; };
+		9DC26BCA26B59FA900BF9038 /* CoffeeNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeNetworkService.swift; sourceTree = "<group>"; };
+		9DC26BD026B5E6C700BF9038 /* CError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CError.swift; sourceTree = "<group>"; };
+		9DC26BDE26B5EC4100BF9038 /* CofeeMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CofeeMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +47,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DC26BD426B5E8E600BF9038 /* RxSwift in Frameworks */,
+				9DC26BDC26B5E8E600BF9038 /* RxBlocking in Frameworks */,
+				9DC26BD626B5E8E600BF9038 /* RxTest in Frameworks */,
+				9DC26BDA26B5E8E600BF9038 /* RxCocoa in Frameworks */,
+				9DC26BD826B5E8E600BF9038 /* RxRelay in Frameworks */,
+				9DC26BCE26B5DDB700BF9038 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +78,7 @@
 		9DC26BA826B591F400BF9038 /* CoffeeNFC */ = {
 			isa = PBXGroup;
 			children = (
+				9DC26BCF26B5E69D00BF9038 /* Base */,
 				9DC26BBE26B5962700BF9038 /* Services */,
 				9DC26BBD26B5961C00BF9038 /* Managers */,
 				9DC26BA926B591F400BF9038 /* AppDelegate.swift */,
@@ -78,9 +101,37 @@
 		9DC26BBE26B5962700BF9038 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9DC26BC526B59F3900BF9038 /* Netservices */,
 				9DC26BBF26B5966E00BF9038 /* ServiceLocator.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		9DC26BC526B59F3900BF9038 /* Netservices */ = {
+			isa = PBXGroup;
+			children = (
+				9DC26BDD26B5EC2F00BF9038 /* EntityModels */,
+				9DC26BC626B59F5400BF9038 /* SesionManager.swift */,
+				9DC26BC826B59F6700BF9038 /* CoffeeEndPoints.swift */,
+				9DC26BCA26B59FA900BF9038 /* CoffeeNetworkService.swift */,
+			);
+			path = Netservices;
+			sourceTree = "<group>";
+		};
+		9DC26BCF26B5E69D00BF9038 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9DC26BD026B5E6C700BF9038 /* CError.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		9DC26BDD26B5EC2F00BF9038 /* EntityModels */ = {
+			isa = PBXGroup;
+			children = (
+				9DC26BDE26B5EC4100BF9038 /* CofeeMachine.swift */,
+			);
+			path = EntityModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +150,14 @@
 			dependencies = (
 			);
 			name = CoffeeNFC;
+			packageProductDependencies = (
+				9DC26BCD26B5DDB700BF9038 /* Alamofire */,
+				9DC26BD326B5E8E600BF9038 /* RxSwift */,
+				9DC26BD526B5E8E600BF9038 /* RxTest */,
+				9DC26BD726B5E8E600BF9038 /* RxRelay */,
+				9DC26BD926B5E8E600BF9038 /* RxCocoa */,
+				9DC26BDB26B5E8E600BF9038 /* RxBlocking */,
+			);
 			productName = CoffeeNFC;
 			productReference = 9DC26BA626B591F400BF9038 /* CoffeeNFC.app */;
 			productType = "com.apple.product-type.application";
@@ -126,6 +185,10 @@
 				Base,
 			);
 			mainGroup = 9DC26B9D26B591F400BF9038;
+			packageReferences = (
+				9DC26BCC26B5DDB700BF9038 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				9DC26BD226B5E8E600BF9038 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 9DC26BA726B591F400BF9038 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -153,8 +216,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DC26BC226B596C400BF9038 /* AppCordinator.swift in Sources */,
+				9DC26BC726B59F5400BF9038 /* SesionManager.swift in Sources */,
+				9DC26BC926B59F6700BF9038 /* CoffeeEndPoints.swift in Sources */,
 				9DC26BC026B5966E00BF9038 /* ServiceLocator.swift in Sources */,
+				9DC26BD126B5E6C700BF9038 /* CError.swift in Sources */,
 				9DC26BC426B5981F00BF9038 /* AppInteractor.swift in Sources */,
+				9DC26BDF26B5EC4100BF9038 /* CofeeMachine.swift in Sources */,
+				9DC26BCB26B59FA900BF9038 /* CoffeeNetworkService.swift in Sources */,
 				9DC26BAA26B591F400BF9038 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +417,58 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9DC26BCC26B5DDB700BF9038 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
+		9DC26BD226B5E8E600BF9038 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9DC26BCD26B5DDB700BF9038 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DC26BCC26B5DDB700BF9038 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		9DC26BD326B5E8E600BF9038 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DC26BD226B5E8E600BF9038 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		9DC26BD526B5E8E600BF9038 /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DC26BD226B5E8E600BF9038 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
+		9DC26BD726B5E8E600BF9038 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DC26BD226B5E8E600BF9038 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		9DC26BD926B5E8E600BF9038 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DC26BD226B5E8E600BF9038 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		9DC26BDB26B5E8E600BF9038 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DC26BD226B5E8E600BF9038 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9DC26B9E26B591F400BF9038 /* Project object */;
 }
