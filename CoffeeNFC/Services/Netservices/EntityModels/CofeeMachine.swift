@@ -7,29 +7,44 @@
 
 import Foundation
 
+
+// MARK: - CofeeMachine
 struct CofeeMachine: Codable {
-    var  types: [CoffeeType] //TODO
-    var  sizes: [CoffeeSize]
-    var  extras: [CoffeeExtras]
+    let types: [TypeElement]
+    let sizes: [Size]
+    let extras: [Extra]
 }
 
-struct CoffeeType: Codable {
-    var  id: Int //TODO
-    var  name: [CoffeeSize]
+// MARK: - Extra
+struct Extra: Codable {
+    let id: Int
+    let name: String
+    let subselections: [Size]
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case name, subselections
+    }
 }
 
-struct CoffeeSize: Codable {
-    var  id: Int //TODO
-    var  name: [CoffeeSize]
+// MARK: - Size
+struct Size: Codable {
+    let id: Int
+    let name: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case name
+    }
 }
 
-struct CoffeeExtras: Codable {
-    var  id: Int //TODO
-    var  name: String
-    var  subselections: [Subselections]
-}
-
-struct Subselections: Codable {
-    var  id: Int //TODO
-    var  name: String
+// MARK: - TypeElement
+struct TypeElement: Codable {
+    let id, name: String
+    let sizes, extras: [String]
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case name, sizes, extras
+    }
 }

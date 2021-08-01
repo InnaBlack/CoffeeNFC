@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9DC26BAA26B591F400BF9038 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BA926B591F400BF9038 /* AppDelegate.swift */; };
 		9DC26BB326B591F800BF9038 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DC26BB226B591F800BF9038 /* Assets.xcassets */; };
-		9DC26BB626B591F800BF9038 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC26BB426B591F800BF9038 /* LaunchScreen.storyboard */; };
 		9DC26BC026B5966E00BF9038 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BBF26B5966E00BF9038 /* ServiceLocator.swift */; };
 		9DC26BC226B596C400BF9038 /* AppCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BC126B596C400BF9038 /* AppCordinator.swift */; };
 		9DC26BC426B5981F00BF9038 /* AppInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BC326B5981F00BF9038 /* AppInteractor.swift */; };
@@ -28,17 +27,17 @@
 		9DC26BE726B6A2D500BF9038 /* CoffeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BE626B6A2D500BF9038 /* CoffeeViewModel.swift */; };
 		9DC26BE926B6A2F200BF9038 /* CoffeeMainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BE826B6A2F200BF9038 /* CoffeeMainScreenPresenter.swift */; };
 		9DC26BEB26B6A34600BF9038 /* CoffeeTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BEA26B6A34600BF9038 /* CoffeeTableManager.swift */; };
-		9DC26BED26B6A36500BF9038 /* CoffeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BEC26B6A36500BF9038 /* CoffeeCell.swift */; };
+		9DC26BED26B6A36500BF9038 /* CoffeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BEC26B6A36500BF9038 /* CoffeeTableViewCell.swift */; };
 		9DC26BF126B6A3CC00BF9038 /* CoffeeNFSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BF026B6A3CC00BF9038 /* CoffeeNFSModel.swift */; };
 		9DC26BF426B6A7C600BF9038 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BF326B6A7C600BF9038 /* BaseViewController.swift */; };
 		9DC26BF626B6B51500BF9038 /* CoffeeMainScreenConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BF526B6B51500BF9038 /* CoffeeMainScreenConfigurator.swift */; };
+		9DC26BFC26B7336600BF9038 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9DC26BFB26B7336600BF9038 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9DC26BA626B591F400BF9038 /* CoffeeNFC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeNFC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC26BA926B591F400BF9038 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DC26BB226B591F800BF9038 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9DC26BB526B591F800BF9038 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DC26BB726B591F800BF9038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DC26BBF26B5966E00BF9038 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		9DC26BC126B596C400BF9038 /* AppCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCordinator.swift; sourceTree = "<group>"; };
@@ -53,7 +52,7 @@
 		9DC26BE626B6A2D500BF9038 /* CoffeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeViewModel.swift; sourceTree = "<group>"; };
 		9DC26BE826B6A2F200BF9038 /* CoffeeMainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeMainScreenPresenter.swift; sourceTree = "<group>"; };
 		9DC26BEA26B6A34600BF9038 /* CoffeeTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTableManager.swift; sourceTree = "<group>"; };
-		9DC26BEC26B6A36500BF9038 /* CoffeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCell.swift; sourceTree = "<group>"; };
+		9DC26BEC26B6A36500BF9038 /* CoffeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTableViewCell.swift; sourceTree = "<group>"; };
 		9DC26BF026B6A3CC00BF9038 /* CoffeeNFSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeNFSModel.swift; sourceTree = "<group>"; };
 		9DC26BF326B6A7C600BF9038 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9DC26BF526B6B51500BF9038 /* CoffeeMainScreenConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeMainScreenConfigurator.swift; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 				9DC26BD426B5E8E600BF9038 /* RxSwift in Frameworks */,
 				9DC26BDC26B5E8E600BF9038 /* RxBlocking in Frameworks */,
 				9DC26BDA26B5E8E600BF9038 /* RxCocoa in Frameworks */,
+				9DC26BFC26B7336600BF9038 /* SnapKit in Frameworks */,
 				9DC26BD826B5E8E600BF9038 /* RxRelay in Frameworks */,
 				9DC26BCE26B5DDB700BF9038 /* Alamofire in Frameworks */,
 			);
@@ -102,7 +102,6 @@
 				9DC26BC326B5981F00BF9038 /* AppInteractor.swift */,
 				9DC26BC126B596C400BF9038 /* AppCordinator.swift */,
 				9DC26BB226B591F800BF9038 /* Assets.xcassets */,
-				9DC26BB426B591F800BF9038 /* LaunchScreen.storyboard */,
 				9DC26BB726B591F800BF9038 /* Info.plist */,
 			);
 			path = CoffeeNFC;
@@ -112,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				9DC26BEA26B6A34600BF9038 /* CoffeeTableManager.swift */,
-				9DC26BEC26B6A36500BF9038 /* CoffeeCell.swift */,
+				9DC26BEC26B6A36500BF9038 /* CoffeeTableViewCell.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -229,6 +228,7 @@
 				9DC26BD726B5E8E600BF9038 /* RxRelay */,
 				9DC26BD926B5E8E600BF9038 /* RxCocoa */,
 				9DC26BDB26B5E8E600BF9038 /* RxBlocking */,
+				9DC26BFB26B7336600BF9038 /* SnapKit */,
 			);
 			productName = CoffeeNFC;
 			productReference = 9DC26BA626B591F400BF9038 /* CoffeeNFC.app */;
@@ -260,6 +260,7 @@
 			packageReferences = (
 				9DC26BCC26B5DDB700BF9038 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				9DC26BD226B5E8E600BF9038 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				9DC26BFA26B7336600BF9038 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 9DC26BA726B591F400BF9038 /* Products */;
 			projectDirPath = "";
@@ -275,7 +276,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DC26BB626B591F800BF9038 /* LaunchScreen.storyboard in Resources */,
 				9DC26BB326B591F800BF9038 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,7 +292,7 @@
 				9DC26BC926B59F6700BF9038 /* CoffeeEndPoints.swift in Sources */,
 				9DC26BC026B5966E00BF9038 /* ServiceLocator.swift in Sources */,
 				9DC26BE726B6A2D500BF9038 /* CoffeeViewModel.swift in Sources */,
-				9DC26BED26B6A36500BF9038 /* CoffeeCell.swift in Sources */,
+				9DC26BED26B6A36500BF9038 /* CoffeeTableViewCell.swift in Sources */,
 				9DC26BD126B5E6C700BF9038 /* CError.swift in Sources */,
 				9DC26BF426B6A7C600BF9038 /* BaseViewController.swift in Sources */,
 				9DC26BE226B5F25F00BF9038 /* Decode.swift in Sources */,
@@ -309,17 +309,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		9DC26BB426B591F800BF9038 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9DC26BB526B591F800BF9038 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9DC26BB826B591F800BF9038 /* Debug */ = {
@@ -516,6 +505,14 @@
 				minimumVersion = 6.2.0;
 			};
 		};
+		9DC26BFA26B7336600BF9038 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -543,6 +540,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9DC26BD226B5E8E600BF9038 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxBlocking;
+		};
+		9DC26BFB26B7336600BF9038 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DC26BFA26B7336600BF9038 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

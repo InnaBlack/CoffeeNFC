@@ -38,7 +38,7 @@ extension CoffeeMainScreenPresenter: CoffeeMainScreenPresenterProtocol {
             return
         }
         view?.showLoader()
-        networkService.obtainCofeeMachine(id: "60ba0ad8493d9eac4811a9a6")
+        networkService.obtainCofeeMachine(id: "60ba1ab72e35f2d9c786c610")
             .observe(on: MainScheduler.instance)
             .subscribe { cofeeMachine in
                 print(cofeeMachine) //todoMake ViewModel
