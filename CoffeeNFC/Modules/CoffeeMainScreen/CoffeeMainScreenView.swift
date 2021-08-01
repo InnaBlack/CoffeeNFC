@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//import SnapKit
+import SnapKit
 import RxSwift
 import RxCocoa
 
@@ -17,7 +17,8 @@ protocol CoffeeMainScreenViewControllerProtocol {
 
 extension CoffeeMainScreenView {
     struct Appearance {
-
+        let titleLabeHeight = 33.0
+        
     }
 }
 
@@ -27,17 +28,23 @@ final class CoffeeMainScreenView: BaseViewController {
     private let disposeBag = DisposeBag()
     var presenter: CoffeeMainScreenPresenterProtocol!
     
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.text = "Select your style"
+        label.backgroundColor = .white
+        return label
+    }()
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .clear
+        tableView.backgroundColor = .white
         return tableView
     }()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "Brew with Lex"
         presenter.viewDidLoad()
         setupUI()
     }
@@ -50,15 +57,23 @@ final class CoffeeMainScreenView: BaseViewController {
     }
     
     func addSubviews() {
+        view.addSubview(titleLabel)
         view.addSubview(tableView)
     }
     
     func makeConstraints() {
-//        tableView.snp.makeConstraints { make in
-//            make.leading.trailing.equalToSuperview()
-//            make.top.equalTo(searchField.snp.bottom).offset(appearance.topMargin)
-//            make.bottom.equalTo(viewBackground.safeAreaLayoutGuide.snp.bottom)
-//        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(self.appearance.titleLabeHeight)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(titleLabel.snp.bottom)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
     }
 }
 

@@ -17,7 +17,7 @@ struct CofeeMachine: Codable {
 
 // MARK: - Extra
 struct Extra: Codable {
-    let id: Int
+    let id: String
     let name: String
     let subselections: [Size]
     
@@ -29,7 +29,7 @@ struct Extra: Codable {
 
 // MARK: - Size
 struct Size: Codable {
-    let id: Int
+    let id: String
     let name: String
     
     enum CodingKeys: String, CodingKey {

@@ -44,7 +44,7 @@ final class AppInteractor: NSObject, AppInteractorProtocol {
         coordinator = AppCoordinator()
         coordinator?.delegate = self
         let targetViewController = coordinator?.start()
-
+        
         self.coreWindow = UIWindow(frame: UIScreen.main.bounds)
         self.coreWindow?.rootViewController = targetViewController
         self.coreWindow?.makeKeyAndVisible()

@@ -20,7 +20,7 @@ protocol AppCoordinatorProtocol: AnyObject {
 
 
 protocol AppCoordinatorCoffeeMainScreenOutput: AnyObject {
-    
+    func nextScreen(typeModel: CofeeMachine, choosedModel: TypeElement)
 }
 
 
@@ -29,25 +29,25 @@ protocol AppCoordinatorCoffeeMainScreenOutput: AnyObject {
 final class AppCoordinator: AppCoordinatorProtocol {
     
     private var navigationController: UINavigationController?
-    
+    private var coffeeNFSModel: CoffeeNFSModel?
     weak var delegate: AppInteractorProtocol? // if need restart
         
     func start() -> UIViewController? {
 
         self.navigationController = UINavigationController()
-        
-        //MainScreen configuration 
+        //MainScreen configuration
         let (coffeeMainscreenView, coffeeMainscreenInput) = CoffeeMainScreenConfigurator.authModule(linkCordinator: self)
        
         self.navigationController?.setViewControllers([coffeeMainscreenView], animated: true)
         
-        return coffeeMainscreenView
+        return self.navigationController
     }
 }
 //link output for earch screen
 extension AppCoordinator: AppCoordinatorCoffeeMainScreenOutput {
-    func nextScreen(typeModel: CofeeMachine) {
+    func nextScreen(typeModel: CofeeMachine, choosedModel: TypeElement) {
         
+        coffeeNFSModel?.types = choosedModel
     }
 }
 

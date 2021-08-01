@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 
 protocol CoffeeMainScreenPresenterProtocol {
+    
     var coffeeTableManager: CoffeeTableManagerProtocol? { get }
     func viewDidLoad()
 }
@@ -26,13 +27,15 @@ final class CoffeeMainScreenPresenter: NSObject {
     var networkService: CoffeeNetworkServiceProtocol!
     
     var coffeeTableManager: CoffeeTableManagerProtocol?
-        
+    
+    private var model: CofeeMachine?
+    
     private let disposeBag = DisposeBag()
     
 }
-    
+
 extension CoffeeMainScreenPresenter: CoffeeMainScreenPresenterProtocol {
-       
+    
     func viewDidLoad() {
         guard let networkService = self.networkService else {
             return
@@ -40,17 +43,33 @@ extension CoffeeMainScreenPresenter: CoffeeMainScreenPresenterProtocol {
         view?.showLoader()
         networkService.obtainCofeeMachine(id: "60ba1ab72e35f2d9c786c610")
             .observe(on: MainScheduler.instance)
-            .subscribe { cofeeMachine in
-                print(cofeeMachine) //todoMake ViewModel
+            .subscribe { [weak self] cofeeMachine in
+                let coffeeViewModels = cofeeMachine.types.map({ typeElement in
+                    CoffeeViewModel(id: typeElement.id,
+                                    name: typeElement.name,
+                                    sizes: typeElement.sizes,
+                                    extras: typeElement.extras)
+                })
+                self?.model = cofeeMachine
+                self?.coffeeTableManager?.updateTable(with: coffeeViewModels)
             } onFailure: { error in
                 //show error todo
             }.disposed(by: disposeBag)
-
+        
     }
 }
 
 extension CoffeeMainScreenPresenter: CoffeeMainScreenInput {
     
+}
+
+extension CoffeeMainScreenPresenter: CoffeeTableManagerDelegate {
+    func didSelectRowAt(indexPath: IndexPath) {
+        guard let model = self.model else {
+            return
+        }
+        delegate.nextScreen(typeModel: model, choosedModel: model.types[indexPath.row])
+    }
 }
 
 

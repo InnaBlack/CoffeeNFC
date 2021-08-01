@@ -14,18 +14,15 @@ protocol CoffeeTableManagerDelegate: AnyObject {
 }
 
 protocol CoffeeTableManagerProtocol {
-    associatedtype ViewModel
     func setupTable(tableView: UITableView)
-    func updateTable(with model: [ViewModel])
+    func updateTable(with model: [CoffeeViewModel])
 }
 
 final class CoffeeTableManager: NSObject {
     
-    typealias ViewModel = CoffeeViewModel // & Reusable & Configurable
-    
     weak var delegate: CoffeeTableManagerDelegate?
     private weak var tableView: UITableView?
-    private var viewModel: [ViewModel]? {
+    private var viewModel: [CoffeeViewModel]? {
         didSet {
             tableView?.reloadData()
         }
@@ -42,11 +39,12 @@ extension CoffeeTableManager: CoffeeTableManagerProtocol {
         self.tableView = tableView
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
+        self.tableView?.rowHeight = 102.0
         self.tableView?.register(CoffeeTableViewCell.self, forCellReuseIdentifier: CoffeeTableViewCell.reuseIdentifier)
     }
     
-    func updateTable(with model: [ViewModel]) {
-        viewModel = model
+    func updateTable(with model: [CoffeeViewModel]) {
+        self.viewModel = model
     }
 }
 
@@ -57,8 +55,12 @@ extension CoffeeTableManager: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CoffeeTableViewCell.reuseIdentifier, for: indexPath)
-        //cell.textLabel?.text = viewModel?[indexPath.row]
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CoffeeTableViewCell.reuseIdentifier, for: indexPath) as? CoffeeTableViewCell else {
+            return UITableViewCell(style: .default, reuseIdentifier: nil)
+        }
+        cell.viewModel = viewModel?[indexPath.row]
+        
         return cell
     }
     
