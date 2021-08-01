@@ -11,7 +11,7 @@ import RxSwift
 
 
 protocol CoffeeNetworkServiceProtocol: AnyObject {
-    func obtainCofeeMachine(id: String) -> Single<CofeeMachine?>
+    func obtainCofeeMachine(id: String) -> Single<CofeeMachine>
 }
 
 class CoffeeNetworkService {
@@ -36,7 +36,7 @@ class CoffeeNetworkService {
 
 extension CoffeeNetworkService: CoffeeNetworkServiceProtocol {
 
-    func obtainCofeeMachine(id: String) -> Single<CofeeMachine?> {
+    func obtainCofeeMachine(id: String) -> Single<CofeeMachine> {
         
         return .create{ [weak self] obsever in
             guard
@@ -44,17 +44,15 @@ extension CoffeeNetworkService: CoffeeNetworkServiceProtocol {
             else {
                 return Disposables.create()
             }
-            self?.makeRequest(from: CoffeeEndPoints.obtainCofeeMachine(id: id), method: .get) { result in
+            strongSelf.makeRequest(from: CoffeeEndPoints.obtainCofeeMachine(id: id), method: .get) { result in
                 switch result {
                 case .success(let response):
                     if let json = try? JSONSerialization.jsonObject(with: response, options: []),
-                       let profile = CofeeMachine.fromJson(json) {
-                        obsever(.success(profile))
-                    } else {
-                        obsever(.success(nil))
+                       let cofeeMachine = CofeeMachine.fromJson(json) {
+                        obsever(.success(cofeeMachine))
                     }
                 case .failure(let error):
-                    obsever(.error(CError(error: error)))
+                    obsever(.failure(CError(error: error)))
                 }
             }
             

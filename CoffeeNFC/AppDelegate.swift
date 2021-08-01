@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.interactor = AppInteractor()
         self.interactor?.start()
         
-                return true
+        return true
     }
 
     // MARK: UISceneSession Lifecycle

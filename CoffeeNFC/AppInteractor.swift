@@ -33,16 +33,15 @@ final class AppInteractor: NSObject, AppInteractorProtocol {
     // MARK: - Private methods
     
     private func setupServiceLocator() {
-       //TODO
-       // ServiceLocator.shared.addService(service: Service as NetworkService)
-        
+        let coffeeNetworkService = CoffeeNetworkService()
+        ServiceLocator.shared.addService(service: coffeeNetworkService as CoffeeNetworkServiceProtocol)
     }
     
     // MARK: - Public methods
     
     func start() {
         
-        coordinator = AppCoordinator.shared
+        coordinator = AppCoordinator()
         coordinator?.delegate = self
         let targetViewController = coordinator?.start()
 
@@ -56,7 +55,4 @@ final class AppInteractor: NSObject, AppInteractorProtocol {
     func reStart() {
         //TODO
     }
-
-        
 }
-

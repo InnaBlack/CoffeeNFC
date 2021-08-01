@@ -18,26 +18,36 @@ protocol AppCoordinatorProtocol: AnyObject {
     
 }
 
+
+protocol AppCoordinatorCoffeeMainScreenOutput: AnyObject {
+    
+}
+
+
 // MARK: - AppCoordinator implementation
 
 final class AppCoordinator: AppCoordinatorProtocol {
-    
-    static var shared: AppCoordinator = {
-        return AppCoordinator()
-    }()
     
     private var navigationController: UINavigationController?
     
     weak var delegate: AppInteractorProtocol? // if need restart
         
     func start() -> UIViewController? {
-        let view: UIViewController
 
         self.navigationController = UINavigationController()
-        //TODO
-        view = UIViewController()
-        self.navigationController?.setViewControllers([view], animated: true)
-        return view
+        
+        //MainScreen configuration 
+        let (coffeeMainscreenView, coffeeMainscreenInput) = CoffeeMainScreenConfigurator.authModule(linkCordinator: self)
+       
+        self.navigationController?.setViewControllers([coffeeMainscreenView], animated: true)
+        
+        return coffeeMainscreenView
+    }
+}
+//link output for earch screen
+extension AppCoordinator: AppCoordinatorCoffeeMainScreenOutput {
+    func nextScreen(typeModel: CofeeMachine) {
+        
     }
 }
 
