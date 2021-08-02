@@ -7,8 +7,12 @@
 
 import Foundation
 
+protocol CoffeeViewModelProtocol {
+    var id: String { get }
+    var name: String { get }
+}
 
-struct CoffeeViewModel {
+struct CoffeeViewModel: CoffeeViewModelProtocol {
     let id: String
     let name: String
     let sizes: [String]

@@ -23,7 +23,7 @@ protocol AppCoordinatorCoffeeMainScreenOutput: AnyObject {
 }
 
 protocol AppCoordinatorCoffeeSizeOutput: AnyObject {
-    func nextScreen(typeModel: CofeeMachine, choosedModel: SizeElement)
+    func nextScreen(choosedModel: SizeElement)
 }
 
 
@@ -33,6 +33,8 @@ final class AppCoordinator: AppCoordinatorProtocol {
     
     private var navigationController: UINavigationController?
     private var coffeeNFSModel: CoffeeNFSModel?
+    private var sizeVocabluary: [SizeElement]?
+    private var extraVocabluary: [ExtraElement]?
     weak var delegate: AppInteractorProtocol? // if need restart
         
     func start() -> UIViewController? {
@@ -50,11 +52,19 @@ final class AppCoordinator: AppCoordinatorProtocol {
 extension AppCoordinator: AppCoordinatorCoffeeMainScreenOutput {
     func nextScreen(typeModel: CofeeMachine, choosedModel: TypeElement) {
         
+        //Make NFS model
         coffeeNFSModel?.types = choosedModel
         
+        //
+        self.sizeVocabluary = typeModel.sizes
+        //
+        self.extraVocabluary = typeModel.extras
+
         //SizeScreen configuration
-        let (coffeeMainscreenView, coffeeMainscreenInput) = CoffeeMainScreenConfigurator.authModule(linkCordinator: self)
+        let (coffeeMainscreenView, coffeeMainscreenInput) = SizeScreenConfigurator.authModule(linkCordinator: self)
        
+    
+        coffeeMainscreenInput.setModel(model: typeModel.sizes)
         self.navigationController?.setViewControllers([coffeeMainscreenView], animated: true)
         
         
@@ -62,7 +72,7 @@ extension AppCoordinator: AppCoordinatorCoffeeMainScreenOutput {
 }
 
 extension AppCoordinator: AppCoordinatorCoffeeSizeOutput {
-    func nextScreen(typeModel: CofeeMachine, choosedModel: SizeElement) {
+    func nextScreen(choosedModel: SizeElement) {
         
         coffeeNFSModel?.sizes = choosedModel
         

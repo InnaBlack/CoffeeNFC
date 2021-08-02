@@ -14,16 +14,16 @@ protocol CoffeeTableManagerDelegate: AnyObject {
 }
 
 protocol CoffeeTableManagerProtocol {
-    associatedtype T
-    func setupTable(tableView: UITableView)
-    func updateTable(with model: [T])
+    func setupTable(tableView: UITableView, type: CoffeeTableManager.TableManagerType)
+    func updateTable(with model: [CoffeeViewModelProtocol])
 }
 
 final class CoffeeTableManager: NSObject {
     
     weak var delegate: CoffeeTableManagerDelegate?
     private weak var tableView: UITableView?
-    private var viewModel: [CoffeeViewModel]? {
+    private var typeTableView: TableManagerType?
+    private var viewModel: [CoffeeViewModelProtocol]? {
         didSet {
             tableView?.reloadData()
         }
@@ -32,11 +32,17 @@ final class CoffeeTableManager: NSObject {
     private func makeTableViewUnscrollableIfNeeded() {
 
     }
+    
+    init(withDelegate delegate: CoffeeTableManagerDelegate?) {
+        self.delegate = delegate
+    }
+    
 }
 
 extension CoffeeTableManager: CoffeeTableManagerProtocol {
-    
-    func setupTable(tableView: UITableView) {
+
+    func setupTable(tableView: UITableView, type: TableManagerType) {
+        self.typeTableView = type
         self.tableView = tableView
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
@@ -44,10 +50,20 @@ extension CoffeeTableManager: CoffeeTableManagerProtocol {
         self.tableView?.register(CoffeeTableViewCell.self, forCellReuseIdentifier: CoffeeTableViewCell.reuseIdentifier)
     }
     
-    func updateTable<T>(with model: [T]) {
+    func updateTable(with model: [CoffeeViewModelProtocol]) {
         self.viewModel = model
     }
 }
+
+
+extension CoffeeTableManager {
+    enum TableManagerType {
+        case type
+        case size
+        case extra
+    }
+}
+
 
 extension CoffeeTableManager: UITableViewDataSource, UITableViewDelegate {
     

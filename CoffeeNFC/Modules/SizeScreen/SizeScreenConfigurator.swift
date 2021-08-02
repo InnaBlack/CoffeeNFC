@@ -15,16 +15,14 @@ class SizeScreenConfigurator: SizeScreenConfiguratoryProtocol {
   
     class func authModule(linkCordinator: AppCoordinatorCoffeeSizeOutput) -> (UIViewController, SizeScreenInput) {
         //Services
-        let networkService: CoffeeNetworkServiceProtocol? = ServiceLocator.shared.getService()
-        let tableViewManager: CoffeeTableManagerProtocol? = CoffeeTableManager()
 
         let view = SizeScreenView()
         let presenter = SizeScreenPresenter()
+        let tableViewManager: CoffeeTableManagerProtocol? = CoffeeTableManager(withDelegate: presenter)
         view.presenter = presenter
         presenter.coffeeTableManager = tableViewManager
         presenter.view = view
         presenter.delegate = linkCordinator
-        presenter.networkService = networkService
         
         return (view, presenter)
     }

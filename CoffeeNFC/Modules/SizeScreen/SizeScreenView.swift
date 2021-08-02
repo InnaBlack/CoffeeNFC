@@ -53,7 +53,7 @@ final class SizeScreenView: BaseViewController {
 
         addSubviews()
         makeConstraints()
-        presenter.coffeeTableManager?.setupTable(tableView: tableView)
+        presenter.coffeeTableManager?.setupTable(tableView: tableView, type: .size)
     }
     
     func addSubviews() {

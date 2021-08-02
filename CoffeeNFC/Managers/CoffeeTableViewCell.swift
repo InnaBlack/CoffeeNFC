@@ -36,7 +36,7 @@ class CoffeeTableViewCell: UITableViewCell {
     }()
     
     
-    var viewModel: CoffeeViewModel? {
+    var viewModel: CoffeeViewModelProtocol? {
         didSet {
             guard let viewModel = self.viewModel  else {
                 return

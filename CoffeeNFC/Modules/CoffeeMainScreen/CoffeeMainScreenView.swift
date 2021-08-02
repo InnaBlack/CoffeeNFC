@@ -53,7 +53,7 @@ final class CoffeeMainScreenView: BaseViewController {
 
         addSubviews()
         makeConstraints()
-        presenter.coffeeTableManager?.setupTable(tableView: tableView)
+        presenter.coffeeTableManager?.setupTable(tableView: tableView, type: .type)
     }
     
     func addSubviews() {

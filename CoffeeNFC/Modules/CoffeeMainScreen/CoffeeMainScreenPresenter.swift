@@ -51,7 +51,9 @@ extension CoffeeMainScreenPresenter: CoffeeMainScreenPresenterProtocol {
                                     extras: typeElement.extras)
                 })
                 self?.model = cofeeMachine
+                
                 self?.coffeeTableManager?.updateTable(with: coffeeViewModels)
+               
             } onFailure: { error in
                 //show error todo
             }.disposed(by: disposeBag)

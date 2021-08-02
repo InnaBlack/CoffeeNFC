@@ -15,7 +15,7 @@ protocol SizeScreenPresenterProtocol {
 }
 
 protocol SizeScreenInput {
-    
+    func setModel(model:  [SizeElement])
 }
 
 // MARK: - SizeScreenPresenter implementation
@@ -24,11 +24,10 @@ final class SizeScreenPresenter: NSObject {
     
     weak var view: SizeScreenView!
     var delegate: AppCoordinatorCoffeeSizeOutput!
-    var networkService: CoffeeNetworkServiceProtocol!
     
     var coffeeTableManager: CoffeeTableManagerProtocol?
     
-    private var model: CofeeMachine?
+    private var model: [SizeElement]?
     
     private let disposeBag = DisposeBag()
     
@@ -37,30 +36,22 @@ final class SizeScreenPresenter: NSObject {
 extension SizeScreenPresenter: SizeScreenPresenterProtocol {
     
     func viewDidLoad() {
-        guard let networkService = self.networkService else {
+        guard let model = model else {
             return
         }
-        view?.showLoader()
-        networkService.obtainCofeeMachine(id: "60ba1ab72e35f2d9c786c610")
-            .observe(on: MainScheduler.instance)
-            .subscribe { [weak self] cofeeMachine in
-                let coffeeViewModels = cofeeMachine.types.map({ typeElement in
-                    CoffeeViewModel(id: typeElement.id,
-                                    name: typeElement.name,
-                                    sizes: typeElement.sizes,
-                                    extras: typeElement.extras)
-                })
-                self?.model = cofeeMachine
-                self?.coffeeTableManager?.updateTable(with: coffeeViewModels)
-            } onFailure: { error in
-                //show error todo
-            }.disposed(by: disposeBag)
-        
+        let coffeeViewModels = model.map({ typeElement in
+            SizeCoffeeViewModel(id: typeElement.id,
+                            name: typeElement.name)
+        })
+       
+    self.coffeeTableManager?.updateTable(with: coffeeViewModels)
     }
 }
 
 extension SizeScreenPresenter: SizeScreenInput {
-    
+    func setModel(model:  [SizeElement]) {
+        self.model = model
+    }
 }
 
 extension SizeScreenPresenter: CoffeeTableManagerDelegate {
@@ -68,7 +59,8 @@ extension SizeScreenPresenter: CoffeeTableManagerDelegate {
         guard let model = self.model else {
             return
         }
-        delegate.nextScreen(typeModel: model, choosedModel: model.extras[indexPath.row])
+       
+        delegate.nextScreen(choosedModel: model[indexPath.row])
     }
 }
 

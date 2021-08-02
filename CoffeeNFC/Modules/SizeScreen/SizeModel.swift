@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SizeCoffeeViewModel {
+struct SizeCoffeeViewModel: CoffeeViewModelProtocol {
     let id: String
     let name: String
 }
