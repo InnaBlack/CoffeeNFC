@@ -14,8 +14,9 @@ protocol CoffeeTableManagerDelegate: AnyObject {
 }
 
 protocol CoffeeTableManagerProtocol {
+    associatedtype T
     func setupTable(tableView: UITableView)
-    func updateTable(with model: [CoffeeViewModel])
+    func updateTable(with model: [T])
 }
 
 final class CoffeeTableManager: NSObject {
@@ -43,7 +44,7 @@ extension CoffeeTableManager: CoffeeTableManagerProtocol {
         self.tableView?.register(CoffeeTableViewCell.self, forCellReuseIdentifier: CoffeeTableViewCell.reuseIdentifier)
     }
     
-    func updateTable(with model: [CoffeeViewModel]) {
+    func updateTable<T>(with model: [T]) {
         self.viewModel = model
     }
 }

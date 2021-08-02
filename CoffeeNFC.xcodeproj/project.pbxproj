@@ -33,6 +33,10 @@
 		9DC26BF626B6B51500BF9038 /* CoffeeMainScreenConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BF526B6B51500BF9038 /* CoffeeMainScreenConfigurator.swift */; };
 		9DC26BFC26B7336600BF9038 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9DC26BFB26B7336600BF9038 /* SnapKit */; };
 		9DC26BFE26B7494400BF9038 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26BFD26B7494300BF9038 /* UIColor.swift */; };
+		9DC26C0426B7C29700BF9038 /* SizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26C0026B7C29600BF9038 /* SizeModel.swift */; };
+		9DC26C0526B7C29700BF9038 /* SizeScreenConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26C0126B7C29600BF9038 /* SizeScreenConfigurator.swift */; };
+		9DC26C0626B7C29700BF9038 /* SizeScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26C0226B7C29600BF9038 /* SizeScreenPresenter.swift */; };
+		9DC26C0726B7C29700BF9038 /* SizeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC26C0326B7C29600BF9038 /* SizeScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +62,10 @@
 		9DC26BF326B6A7C600BF9038 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9DC26BF526B6B51500BF9038 /* CoffeeMainScreenConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeMainScreenConfigurator.swift; sourceTree = "<group>"; };
 		9DC26BFD26B7494300BF9038 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		9DC26C0026B7C29600BF9038 /* SizeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeModel.swift; sourceTree = "<group>"; };
+		9DC26C0126B7C29600BF9038 /* SizeScreenConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeScreenConfigurator.swift; sourceTree = "<group>"; };
+		9DC26C0226B7C29600BF9038 /* SizeScreenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeScreenPresenter.swift; sourceTree = "<group>"; };
+		9DC26C0326B7C29600BF9038 /* SizeScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				9DC26BF726B6F5CA00BF9038 /* CoffeeMainScreen */,
+				9DC26BFF26B7C29600BF9038 /* SizeScreen */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -207,6 +216,17 @@
 				9DC26BF526B6B51500BF9038 /* CoffeeMainScreenConfigurator.swift */,
 			);
 			path = CoffeeMainScreen;
+			sourceTree = "<group>";
+		};
+		9DC26BFF26B7C29600BF9038 /* SizeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9DC26C0026B7C29600BF9038 /* SizeModel.swift */,
+				9DC26C0126B7C29600BF9038 /* SizeScreenConfigurator.swift */,
+				9DC26C0226B7C29600BF9038 /* SizeScreenPresenter.swift */,
+				9DC26C0326B7C29600BF9038 /* SizeScreenView.swift */,
+			);
+			path = SizeScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DC26BC226B596C400BF9038 /* AppCordinator.swift in Sources */,
+				9DC26C0526B7C29700BF9038 /* SizeScreenConfigurator.swift in Sources */,
 				9DC26BC726B59F5400BF9038 /* SesionManager.swift in Sources */,
 				9DC26BC926B59F6700BF9038 /* CoffeeEndPoints.swift in Sources */,
 				9DC26BC026B5966E00BF9038 /* ServiceLocator.swift in Sources */,
@@ -298,12 +319,15 @@
 				9DC26BED26B6A36500BF9038 /* CoffeeTableViewCell.swift in Sources */,
 				9DC26BD126B5E6C700BF9038 /* CError.swift in Sources */,
 				9DC26BF426B6A7C600BF9038 /* BaseViewController.swift in Sources */,
+				9DC26C0626B7C29700BF9038 /* SizeScreenPresenter.swift in Sources */,
 				9DC26BFE26B7494400BF9038 /* UIColor.swift in Sources */,
 				9DC26BE226B5F25F00BF9038 /* Decode.swift in Sources */,
 				9DC26BF626B6B51500BF9038 /* CoffeeMainScreenConfigurator.swift in Sources */,
 				9DC26BC426B5981F00BF9038 /* AppInteractor.swift in Sources */,
 				9DC26BEB26B6A34600BF9038 /* CoffeeTableManager.swift in Sources */,
 				9DC26BDF26B5EC4100BF9038 /* CofeeMachine.swift in Sources */,
+				9DC26C0726B7C29700BF9038 /* SizeScreenView.swift in Sources */,
+				9DC26C0426B7C29700BF9038 /* SizeModel.swift in Sources */,
 				9DC26BCB26B59FA900BF9038 /* CoffeeNetworkService.swift in Sources */,
 				9DC26BAA26B591F400BF9038 /* AppDelegate.swift in Sources */,
 				9DC26BE526B6A2C000BF9038 /* CoffeeMainScreenView.swift in Sources */,

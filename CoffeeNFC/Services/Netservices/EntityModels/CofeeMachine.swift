@@ -11,15 +11,15 @@ import Foundation
 // MARK: - CofeeMachine
 struct CofeeMachine: Codable {
     let types: [TypeElement]
-    let sizes: [Size]
-    let extras: [Extra]
+    let sizes: [SizeElement]
+    let extras: [ExtraElement]
 }
 
 // MARK: - Extra
-struct Extra: Codable {
+struct ExtraElement: Codable {
     let id: String
     let name: String
-    let subselections: [Size]
+    let subselections: [SizeElement]
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -28,7 +28,7 @@ struct Extra: Codable {
 }
 
 // MARK: - Size
-struct Size: Codable {
+struct SizeElement: Codable {
     let id: String
     let name: String
     

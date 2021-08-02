@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-struct CoffeeViewModel {
+struct SizeCoffeeViewModel {
     let id: String
     let name: String
-    let sizes: [String]
-    let extras: [String]
 }

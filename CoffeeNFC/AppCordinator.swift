@@ -18,9 +18,12 @@ protocol AppCoordinatorProtocol: AnyObject {
     
 }
 
-
 protocol AppCoordinatorCoffeeMainScreenOutput: AnyObject {
-    func nextScreen(typeModel: CofeeMachine, choosedModel: TypeElement)
+    func nextScreen(typeModel: CofeeMachine, choosedModel: TypeElement) //TODO Generic
+}
+
+protocol AppCoordinatorCoffeeSizeOutput: AnyObject {
+    func nextScreen(typeModel: CofeeMachine, choosedModel: SizeElement)
 }
 
 
@@ -48,6 +51,27 @@ extension AppCoordinator: AppCoordinatorCoffeeMainScreenOutput {
     func nextScreen(typeModel: CofeeMachine, choosedModel: TypeElement) {
         
         coffeeNFSModel?.types = choosedModel
+        
+        //SizeScreen configuration
+        let (coffeeMainscreenView, coffeeMainscreenInput) = CoffeeMainScreenConfigurator.authModule(linkCordinator: self)
+       
+        self.navigationController?.setViewControllers([coffeeMainscreenView], animated: true)
+        
+        
+    }
+}
+
+extension AppCoordinator: AppCoordinatorCoffeeSizeOutput {
+    func nextScreen(typeModel: CofeeMachine, choosedModel: SizeElement) {
+        
+        coffeeNFSModel?.sizes = choosedModel
+        
+        //SizeScreen configuration
+        let (coffeeSizecreenView, coffeeSizescreenInput) = SizeScreenConfigurator.authModule(linkCordinator: self)
+       
+        self.navigationController?.setViewControllers([coffeeSizecreenView], animated: true)
+        
+        
     }
 }
 

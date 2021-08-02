@@ -9,6 +9,6 @@ import Foundation
 
 struct CoffeeNFSModel {
     var types: TypeElement
-    var sizes: Size
-    var extras: Extra
+    var sizes: SizeElement
+    var extras: ExtraElement
 }
