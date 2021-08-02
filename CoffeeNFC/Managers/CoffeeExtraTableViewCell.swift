@@ -1,19 +1,23 @@
 //
-//  CoffeeCell.swift
+//  CoffeeExtraTableViewCell.swift
 //  CoffeeNFC
 //
-//  Created by  inna on 01/08/2021.
+//  Created by  inna on 02/08/2021.
 //
 
 import UIKit
 
-class CoffeeTableViewCell: UITableViewCell {
+protocol RadioButtonDelegate {
+    func onClick(_ sender: UIView)
+}
+
+class CoffeeExtraTableViewCell: UITableViewCell {
     
     let labelColor: UIColor = .white
     let backGroundColor =  UIColor(rgb: 0xAED7A0)
     let labelFont = UIFont(name: "Lungo", size: 14.0)
     let imageSize = 46.0
-    let rowHeight = 94.0
+    let rowHeight = 130.0
     
     private lazy var view: UIView = {
         let view = UIView()
@@ -35,14 +39,32 @@ class CoffeeTableViewCell: UITableViewCell {
         return imageView
     }()
     
+    private lazy var radioButton1: BaseCheckView = {
+        BaseCheckView()
+    }()
     
-    var viewModel: CoffeeViewModelProtocol? {
+    private lazy var radioButton2: BaseCheckView = {
+        BaseCheckView()
+    }()
+    
+    private lazy var stackOptionButtons: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [radioButton1, radioButton2])
+        stackView.distribution = .fillEqually
+        stackView.axis = .vertical
+        return stackView
+    }()
+    
+    var viewModel: ExtraCoffeeViewModel? {
         didSet {
             guard let viewModel = self.viewModel  else {
                 return
             }
             titleLabel.text = viewModel.name
             imageV.image = UIImage(named: viewModel.name.lowercased())
+            radioButton1.setTitle(title: viewModel.subselections[0].name)
+            radioButton1.delegate = self
+            radioButton2.setTitle(title: viewModel.subselections[1].name)
+            radioButton2.delegate = self
         }
     }
     
@@ -70,6 +92,7 @@ class CoffeeTableViewCell: UITableViewCell {
         self.contentView.addSubview(view)
         self.view.addSubview(imageV)
         self.view.addSubview(titleLabel)
+        self.view.addSubview(stackOptionButtons)
     }
     
     private func makeConstraints() {
@@ -81,22 +104,30 @@ class CoffeeTableViewCell: UITableViewCell {
             make.height.equalTo(rowHeight)
         }
         
-        imageV.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(23.0)
-            make.trailing.equalTo(titleLabel.snp.leading).offset(-19.0)
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.height.equalTo(44.0)
+            make.left.equalToSuperview().offset(10.0)
         }
         
-        titleLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
+        stackOptionButtons.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom)
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
     }
 }
 
+extension CoffeeExtraTableViewCell: RadioButtonDelegate {
+    func onClick(_ sender: UIView) {
+        guard let currentRadioButton = sender as? BaseCheckView else {
+            return
+          }
 
-extension UITableViewCell {
-    public static var reuseIdentifier: String {
-        String(describing: self)
+          [ radioButton1,
+            radioButton2
+          ].forEach { $0.isChecked = false }
+          currentRadioButton.isChecked = !currentRadioButton.isChecked
     }
 }
 

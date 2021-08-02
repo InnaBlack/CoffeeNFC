@@ -40,16 +40,20 @@ final class CoffeeTableManager: NSObject {
 }
 
 extension CoffeeTableManager: CoffeeTableManagerProtocol {
-
+    
     func setupTable(tableView: UITableView, type: TableManagerType) {
         self.typeTableView = type
         self.tableView = tableView
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
-        self.tableView?.rowHeight = 102.0
-        self.tableView?.register(CoffeeTableViewCell.self, forCellReuseIdentifier: CoffeeTableViewCell.reuseIdentifier)
+        self.tableView?.rowHeight = type == .extra ? 150.0 : 102.0
+        
+        if (self.typeTableView == .extra) {
+            self.tableView?.register(CoffeeExtraTableViewCell.self, forCellReuseIdentifier: CoffeeExtraTableViewCell.reuseIdentifier)
+        } else {
+            self.tableView?.register(CoffeeTableViewCell.self, forCellReuseIdentifier: CoffeeTableViewCell.reuseIdentifier)
+        }
     }
-    
     func updateTable(with model: [CoffeeViewModelProtocol]) {
         self.viewModel = model
     }
@@ -67,18 +71,27 @@ extension CoffeeTableManager {
 
 extension CoffeeTableManager: UITableViewDataSource, UITableViewDelegate {
     
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CoffeeTableViewCell.reuseIdentifier, for: indexPath) as? CoffeeTableViewCell else {
-            return UITableViewCell(style: .default, reuseIdentifier: nil)
+        if (self.typeTableView == .extra) {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CoffeeExtraTableViewCell.reuseIdentifier, for: indexPath) as? CoffeeExtraTableViewCell else {
+                return UITableViewCell(style: .default, reuseIdentifier: nil)
+            }
+            cell.viewModel = viewModel?[indexPath.row] as? ExtraCoffeeViewModel
+            
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CoffeeTableViewCell.reuseIdentifier, for: indexPath) as? CoffeeTableViewCell else {
+                return UITableViewCell(style: .default, reuseIdentifier: nil)
+            }
+            cell.viewModel = viewModel?[indexPath.row]
+            
+            return cell
         }
-        cell.viewModel = viewModel?[indexPath.row]
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

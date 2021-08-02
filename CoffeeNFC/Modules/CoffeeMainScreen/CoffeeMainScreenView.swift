@@ -30,6 +30,7 @@ final class CoffeeMainScreenView: BaseViewController {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
+        label.font = UIFont(name: "Avenir Next", size: 16.0)
         label.text = "Select your style"
         label.backgroundColor = .white
         return label
@@ -41,16 +42,19 @@ final class CoffeeMainScreenView: BaseViewController {
         tableView.backgroundColor = .white
         return tableView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         title = "Brew with Lex"
+        navigationController?.navigationBar.tintColor = .black
+        navigationItem.backButtonDisplayMode = .minimal
         presenter.viewDidLoad()
         setupUI()
     }
-
+    
     func setupUI() {
-
+        
         addSubviews()
         makeConstraints()
         presenter.coffeeTableManager?.setupTable(tableView: tableView, type: .type)
@@ -64,14 +68,14 @@ final class CoffeeMainScreenView: BaseViewController {
     func makeConstraints() {
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(16.0)
+            make.leading.trailing.equalToSuperview().offset(16.0)
             make.height.equalTo(self.appearance.titleLabeHeight)
         }
         
         tableView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(titleLabel.snp.bottom)
+            make.top.equalTo(titleLabel.snp.bottom).offset(16.0)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }

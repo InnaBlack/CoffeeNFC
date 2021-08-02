@@ -1,5 +1,5 @@
 //
-//  SizeScreenViewController.swift
+//  ExtraScreenViewController.swift
 //  CoffeeNFC
 //
 //  Created by  inna on 01/08/2021.
@@ -10,28 +10,28 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-protocol SizeScreenViewControllerProtocol {
+protocol ExtraScreenViewControllerProtocol {
     func showLoader()
     func hideLoader()
 }
 
-extension SizeScreenView {
+extension ExtraScreenView {
     struct Appearance {
         let titleLabeHeight = 33.0
         
     }
 }
 
-final class SizeScreenView: BaseViewController {
+final class ExtraScreenView: BaseViewController {
     
     private let appearance = Appearance()
     private let disposeBag = DisposeBag()
-    var presenter: SizeScreenPresenterProtocol!
+    var presenter: ExtraScreenPresenterProtocol!
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
+        label.text = "Select your extra’s"
         label.font = UIFont(name: "Avenir Next", size: 16.0)
-        label.text = "Select your size"
         label.backgroundColor = .white
         return label
     }()
@@ -45,8 +45,8 @@ final class SizeScreenView: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
         title = "Brew with Lex"
+        self.view.backgroundColor = .white
         presenter.viewDidLoad()
         setupUI()
     }
@@ -55,7 +55,7 @@ final class SizeScreenView: BaseViewController {
 
         addSubviews()
         makeConstraints()
-        presenter.coffeeTableManager?.setupTable(tableView: tableView, type: .size)
+        presenter.coffeeTableManager?.setupTable(tableView: tableView, type: .extra)
     }
     
     func addSubviews() {
@@ -79,7 +79,7 @@ final class SizeScreenView: BaseViewController {
     }
 }
 
-extension SizeScreenView: SizeScreenViewControllerProtocol {
+extension ExtraScreenView: ExtraScreenViewControllerProtocol {
     
     func showLoader() {
         showActivityIndicator()

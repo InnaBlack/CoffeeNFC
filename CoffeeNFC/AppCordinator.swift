@@ -26,6 +26,10 @@ protocol AppCoordinatorCoffeeSizeOutput: AnyObject {
     func nextScreen(choosedModel: SizeElement)
 }
 
+protocol AppCoordinatorCoffeeExtraOutput: AnyObject {
+    func nextScreen(choosedModel: ExtraElement)
+}
+
 
 // MARK: - AppCoordinator implementation
 
@@ -42,8 +46,7 @@ final class AppCoordinator: AppCoordinatorProtocol {
         self.navigationController = UINavigationController()
         //MainScreen configuration
         let (coffeeMainscreenView, coffeeMainscreenInput) = CoffeeMainScreenConfigurator.authModule(linkCordinator: self)
-       
-        self.navigationController?.setViewControllers([coffeeMainscreenView], animated: true)
+        navigationController = UINavigationController(rootViewController: coffeeMainscreenView)
         
         return self.navigationController
     }
@@ -53,21 +56,18 @@ extension AppCoordinator: AppCoordinatorCoffeeMainScreenOutput {
     func nextScreen(typeModel: CofeeMachine, choosedModel: TypeElement) {
         
         //Make NFS model
-        coffeeNFSModel?.types = choosedModel
-        
+        coffeeNFSModel = CoffeeNFSModel()
+    
         //
         self.sizeVocabluary = typeModel.sizes
         //
         self.extraVocabluary = typeModel.extras
 
         //SizeScreen configuration
-        let (coffeeMainscreenView, coffeeMainscreenInput) = SizeScreenConfigurator.authModule(linkCordinator: self)
+        let (coffeeSizescreenView, coffeeSuzeScreenInput) = SizeScreenConfigurator.authModule(linkCordinator: self)
        
-    
-        coffeeMainscreenInput.setModel(model: typeModel.sizes)
-        self.navigationController?.setViewControllers([coffeeMainscreenView], animated: true)
-        
-        
+        coffeeSuzeScreenInput.setModel(model: typeModel.sizes)
+        self.navigationController?.pushViewController(coffeeSizescreenView, animated: true)
     }
 }
 
@@ -77,11 +77,23 @@ extension AppCoordinator: AppCoordinatorCoffeeSizeOutput {
         coffeeNFSModel?.sizes = choosedModel
         
         //SizeScreen configuration
+        let (coffeeExtraSreenView, coffeeExtraScreenInput) = ExtraScreenConfigurator.authModule(linkCordinator: self)
+        guard let extraVocabluary = self.extraVocabluary else {
+            return
+        }
+        coffeeExtraScreenInput.setModel(model: extraVocabluary)
+        self.navigationController?.pushViewController(coffeeExtraSreenView, animated: true)
+    }
+}
+
+extension AppCoordinator: AppCoordinatorCoffeeExtraOutput {
+    func nextScreen(choosedModel: ExtraElement) {
+        
+        coffeeNFSModel?.extras = choosedModel
+        
+        //SizeScreen configuration
         let (coffeeSizecreenView, coffeeSizescreenInput) = SizeScreenConfigurator.authModule(linkCordinator: self)
        
-        self.navigationController?.setViewControllers([coffeeSizecreenView], animated: true)
-        
-        
     }
 }
 
